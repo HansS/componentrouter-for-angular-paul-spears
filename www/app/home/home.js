@@ -1,6 +1,11 @@
 angular.module('app.home', [])
-    .controller('homeCtrl', function(){
+    .controller('HomeCtrl', function($location){
         var hctrl = this;
 
-        hctrl.message = 'this is home controller'
+        hctrl.begin = begin;
+
+        function begin(){
+            console.log("clicked");
+            $location.url('/wizlist')
+        }
     });

@@ -13,7 +13,9 @@
                 templateUrl: '/app/wizard/wizardDetail/wizardDetail.html',
                 controller: 'WizDetailCtrl',
                 controllerAs: 'dc'
-            })
+            }).otherwise({
+                redirectTo: '/home'
+            });
         });
 }());
 
