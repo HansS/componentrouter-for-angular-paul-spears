@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="mainAppModule">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Simple Component App</title>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-    {{ "Hello World" }}
-    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <h1>Header Content</h1>
+    <ng-view>
+        <!--Content Goes Here-->
+    </ng-view>
+    <h1>Footer Content</h1>
+
+    <!--library Files-->
     <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
     <script src="lib/angular-new-router/dist/router.es5.js"></script>
+
+    <!--Application Files-->
+    <script src="app/app.js"></script>
+    <script src="app/home/home.js"></script>
+
 </body>
 </html>
