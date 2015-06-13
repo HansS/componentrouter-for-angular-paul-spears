@@ -1,1 +1,16 @@
-Hello from {{ lc.message }}
+<h1>Select a wizard below for more details</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-2">
+            Find your Wizard Here!
+        </div>
+        <div class="col-xs-10">
+            <div class="flexbox">
+                <span class="flexitem" ng-repeat="wizard in lc.wizards">
+                    <img ng-src="{{wizard.details.thumbnail}}">
+                    <div>{{wizard.text}}</div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
