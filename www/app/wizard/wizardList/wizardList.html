@@ -3,10 +3,11 @@
     <div class="row">
         <div class="col-xs-2">
             Find your Wizard Here!
+            <input type="text" ng-model="lc.nameSearch.text">
         </div>
         <div class="col-xs-10">
             <div class="flexbox">
-                <span class="flexitem" ng-repeat="wizard in lc.wizards">
+                <span class="flexitem" ng-click="lc.goToWizard(wizard.text)" ng-repeat="wizard in lc.wizards | filter:lc.nameSearch">
                     <img ng-src="{{wizard.details.thumbnail}}">
                     <div>{{wizard.text}}</div>
                 </span>

@@ -13,14 +13,19 @@
                 controllerAs: 'lc',
                 resolve: {
                     wizardlist: function (wizardAPI) {
-                        var servicePromise = wizardAPI.getWizards();
-                        return servicePromise;
+                        return wizardAPI.getWizards();
                     }
                 }
             }).when('/wizdetail/:wizName', {
                 templateUrl: '/app/wizard/wizardDetail/wizardDetail.html',
                 controller: 'WizDetailCtrl',
-                controllerAs: 'dc'
+                controllerAs: 'dc',
+                resolve: {
+                    wizardDetails: function ($route, wizardAPI) {
+                        return wizardAPI.getWizardDetails($route.current.params.wizName)
+
+                    }
+                }
             }).otherwise({
                 redirectTo: '/home'
             });
