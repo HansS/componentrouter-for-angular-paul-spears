@@ -5,7 +5,6 @@ angular.module('app.home', [])
         hctrl.begin = begin;
 
         function begin(){
-            console.log("clicked");
             $location.url('/wizlist')
         }
     });

@@ -47,7 +47,7 @@ angular.module('app.dataServices', [])
                 return getWizards().then(function () {
                     //now we can return just the one we want
                     return extractWizard();
-                })
+                });
             }
         }
     });
