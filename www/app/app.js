@@ -19,9 +19,10 @@
         });
 
     var routeList = [
+        {path: '/', redirectTo: '/home'},
         {component: 'home', path: '/home', controller: 'HomeCtrl', template: 'app/Home/Home.html'},
         {component: 'wizList', path: '/wizlist', controller: 'WizListCtrl', template: 'app/Wizard/WizList/WizList.html'},
-        {component: 'wizDetail', path: '/wizDetail/:wizName', controller: 'WizDetailCtrl', template: 'app/Wizard/WizardDetail/wizardDetail.html'}
+        {component: 'wizDetail', path: '/wizdetail/:wizName', controller: 'WizDetailCtrl', template: 'app/Wizard/WizardDetail/wizardDetail.html'}
     ];
 }());
 
