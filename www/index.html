@@ -7,9 +7,14 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body>
+<body ng-controller="AppCtrl as ac">
+    <a ng-link="home">Clicky</a>
+    <ng-viewport>
+    </ng-viewport>
+    <!--Becoming:-->
+    <!--<ng-outlet>-->
+    <!--</ng-outlet>-->
     <ng-view>
-        <!--Content Goes Here-->
     </ng-view>
 
     <!--library Files-->
@@ -22,9 +27,9 @@
 
     <!--Application Files-->
     <script src="app/app.js"></script>
-    <script src="app/home/home.js"></script>
-    <script src="app/wizard/wizardList/wizardList.js"></script>
-    <script src="app/wizard/wizardDetail/wizardDetail.js"></script>
+    <script src="app/Home/Home.js"></script>
+    <script src="app/Wizard/WizList/WizList.js"></script>
+    <script src="app/Wizard/wizardDetail/wizardDetail.js"></script>
     <script src="app/dataServices/dataServices.js"></script>
 
 </body>
