@@ -1,11 +1,11 @@
 angular.module('app.home', [])
-    .controller('HomeCtrl', function(){
+    .controller('HomeCtrl', function($location){
         var hctrl = this;
 
         hctrl.begin = begin;
 
         function begin(){
-            console.log('clicked registerd');
-            //$location.url('/wizlist')
+            console.log('clicked');
+            $location.url('/wizlist')
         }
     });

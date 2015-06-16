@@ -1,10 +1,14 @@
 angular.module('app.wizard.wizardList', [])
     .controller('WizListCtrl', WizListCtrl);
 
-function WizListCtrl ($location, wizardAPI) {
-    var lctrl = this;
+var lctrl = {};
+function WizListCtrl ($location) {
+    lctrl = this;
 
-    lctrl.wizListPromise = wizardAPI.getWizards();
+    //populated by hooks
+    lctrl.wizardList = [];
+    //end async data population
+    
     lctrl.goToWizard = goToWizard;
 
     function goToWizard (wizardName) {
@@ -12,14 +16,15 @@ function WizListCtrl ($location, wizardAPI) {
     }
 }
 
-WizListCtrl.prototype.canActivate = function () {
-    //state that this data must be present to activate this route
-    return this.wizListPromise;
+//Is the data available
+WizListCtrl.prototype.canActivate = function (wizardAPI) {
+    lctrl.wizListPromise = wizardAPI.getWizards();
+    return lctrl.wizListPromise
 };
 
+//What should I do with the data once I have it
 WizListCtrl.prototype.activate = function () {
-    var lctrl = this;
-    this.wizListPromise.then(function (wizardList) {
+    lctrl.wizListPromise.then(function (wizardList) {
         lctrl.wizardList = wizardList;
     });
 };

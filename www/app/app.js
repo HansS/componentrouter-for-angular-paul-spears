@@ -2,11 +2,7 @@
     angular.module('mainAppModule', ['ngRoute', 'ngNewRouter', 'app.home', 'app.wizard.wizardList', 'app.wizard.wizardDetail',
                                      'app.dataServices', 'app.home'])
         .config(function($routeProvider, $componentLoaderProvider){
-
             $componentLoaderProvider.setCtrlNameMapping(function (name) {
-                //name is the route URL
-                console.log(name);
-                console.log(routeList);
                 return _.find(routeList, {component: name}).controller;
             });
             $componentLoaderProvider.setTemplateMapping(function (name) {
@@ -14,7 +10,6 @@
             });
         })
         .controller('AppCtrl', function AppCtrl ($router) {
-            var appc = this;
             $router.config(angular.copy(routeList));
         });
 

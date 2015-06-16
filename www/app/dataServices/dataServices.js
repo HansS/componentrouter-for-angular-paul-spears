@@ -3,7 +3,6 @@ angular.module('app.dataServices', [])
         var that = this,
             baseDetailUrl = "http://harrypotter.wikia.com/api/v1/Articles/Details?titles=%%%title%%%&abstract=100&width=200&height=200";
 
-        that.wizards;
         that.getWizards = getWizards;
         that.getWizardDetails = getWizardDetails;
 
@@ -22,10 +21,9 @@ angular.module('app.dataServices', [])
                         var wizardUrl = baseDetailUrl.replace(/%%%title%%%/g, urlWizName);
                         dataRequests.push($http.get(wizardUrl).then(function (response) {
                             //deal with funky shape of api response
-                            var usefulData = _.find(response.data.items, function(idObject){
+                            wizard.details = _.find(response.data.items, function(){
                                 return true;
                             });
-                            wizard.details = usefulData;
                         }));
                     });
                     return $q.all(dataRequests).then(function (){
